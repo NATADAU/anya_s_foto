@@ -433,3 +433,8 @@ html:not(.local-editor) #btnAdd { display: none !important; }
   .speed-wrap { padding: 0 .2rem; gap: .1rem; }
   .controls button { --control-size: 36px; }
 }
+
+/* Дополнительный текст перенесён со второго кадра на титульный. */
+.album-cover__glass .cover-subtitle { margin: 1rem 0 0; font-size: clamp(.85rem,1.4vw,1.3rem); }
+.album-cover__glass .cover-story { max-width: 34rem; margin: clamp(18px,3vh,38px) 0 0; font-family: var(--font-display); font-size: clamp(1rem,1.65vw,1.8rem); font-weight: 400; letter-spacing: 0; line-height: 1.55; text-transform: none; }
+@media (max-width:720px) { .album-cover__glass .cover-story { font-size: clamp(.8rem,2.4vw,1rem); line-height: 1.25; margin-top: 10px; } .album-cover__glass .cover-subtitle { font-size: .7rem; margin-top: .5rem; } }

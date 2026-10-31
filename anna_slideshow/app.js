@@ -24,12 +24,7 @@
   const btnFs = document.getElementById("btnFs");
   const iconPause = document.getElementById("iconPause");
   const iconPlay = document.getElementById("iconPlay");
-  const brandEl = document.getElementById("brand");
-
-  if (cfg.title) {
-    document.title = cfg.title;
-    brandEl.textContent = cfg.title;
-  }
+  if (cfg.title) document.title = cfg.title;
 
   document.documentElement.style.setProperty("--fade-ms", fadeMs + "ms");
 
@@ -88,6 +83,7 @@
   }
 
   function updateCounter() {
+    document.body.classList.toggle("show-cover", slides.length > 0 && index === 0);
     counterEl.textContent = slides.length
       ? index + 1 + " / " + slides.length
       : "— / —";

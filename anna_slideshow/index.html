@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Фотоальбом Ани</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="stage" id="stage" aria-label="Слайдшоу фотоальбома">
+      <p class="brand" id="brand">Фотоальбом Ани</p>
+
+      <div class="slide-layer is-visible" id="layerA" aria-hidden="true">
+        <img alt="" decoding="async" />
+      </div>
+      <div class="slide-layer" id="layerB" aria-hidden="true">
+        <img alt="" decoding="async" />
+      </div>
+
+      <div class="status" id="status" role="status">
+        <p>Загрузка альбома…</p>
+      </div>
+
+      <div class="controls" id="controls" role="toolbar" aria-label="Управление слайдшоу">
+        <button type="button" id="btnPrev" title="Предыдущий (←)" aria-label="Предыдущий слайд">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button type="button" id="btnPlay" title="Пауза / воспроизведение (Пробел)" aria-label="Пауза">
+          <svg id="iconPause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+          <svg id="iconPlay" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button type="button" id="btnNext" title="Следующий (→)" aria-label="Следующий слайд">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+        <button type="button" id="btnFs" title="Полный экран (F)" aria-label="Полноэкранный режим">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+        </button>
+        <span class="counter" id="counter" aria-live="polite">— / —</span>
+        <div class="speed-wrap">
+          <label for="speed">Сек</label>
+          <select id="speed" aria-label="Интервал между слайдами"></select>
+        </div>
+        <button type="button" id="btnAdd" class="btn-text" title="Добавить фотографии" aria-label="Добавить фотографии">
+          Добавить фотографии
+        </button>
+      </div>
+    </main>
+
+    <div class="upload-overlay" id="uploadOverlay" hidden>
+      <section class="upload-panel" role="dialog" aria-modal="true" aria-labelledby="uploadTitle">
+        <h2 id="uploadTitle">Добавить фотографии</h2>
+        <p class="upload-hint" id="uploadInsertNote">
+          По умолчанию новые фото вставляются перед последним слайдом (финальный кадр останется в конце).
+        </p>
+        <p class="upload-limits">До 20 файлов за раз, каждый не больше 20 МБ. Форматы: JPG, PNG, WebP.</p>
+        <div class="upload-actions-top">
+          <button type="button" id="uploadPick" class="btn-solid">Выбрать файлы</button>
+          <input type="file" id="uploadFiles" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" multiple hidden />
+          <span id="uploadCount">Файлы не выбраны</span>
+        </div>
+        <div class="upload-thumbs" id="uploadThumbs"></div>
+        <p class="upload-status" id="uploadStatus" role="status"></p>
+        <div class="upload-actions-bottom">
+          <button type="button" id="uploadCancel" class="btn-ghost">Отмена</button>
+          <button type="button" id="uploadSave" class="btn-solid" disabled>Сохранить</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
+    <script src="./upload.js"></script>
+  </body>
+</html>

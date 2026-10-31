@@ -362,7 +362,7 @@ body.upload-open .controls {
   }
 }
 
-/* Прозрачная обложка на всю высоту правой части первого кадра */
+/* Титульная обложка: оригинальная фотография, только CSS-оформление */
 .album-cover {
   position: absolute;
   inset: 0 0 0 auto;
@@ -370,58 +370,64 @@ body.upload-open .controls {
   height: 100%;
   z-index: 4;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  padding: 4vw;
+  padding: 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: none;
 }
-body.show-cover .album-cover {
-  opacity: 1;
-  visibility: visible;
-}
+body.show-cover .album-cover { opacity: 1; visibility: visible; }
 .album-cover__glass {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: clamp(20px, 3vw, 60px);
-  border-radius: 0;
-  background: rgba(241, 235, 226, .27);
+  padding: clamp(22px, 3.6vw, 72px);
   border: 0;
-  border-left: 1px solid rgba(255,255,255,.32);
+  border-radius: 0;
   box-shadow: none;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  background: rgba(243, 235, 226, .48);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #392923;
   text-align: center;
-  color: #1e1c1a;
 }
 .album-cover__glass h1 {
-  margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 4vw, 4.5rem);
-  line-height: 1.1;
-  font-weight: 500;
-  text-shadow: 0 1px 8px rgba(255,255,255,.6);
+  font-size: clamp(2rem, 4.2vw, 5rem);
+  font-weight: 400;
+  line-height: 1.12;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(255,255,255,.45);
+}
+.album-cover__glass h1::after {
+  content: "";
+  display: block;
+  width: 7rem;
+  height: 2px;
+  background: #c16f7b;
+  margin: clamp(22px, 3vw, 40px) auto 0;
 }
 .album-cover__glass p {
-  margin: 1.25rem 0 0;
-  font-family: var(--font-ui);
-  font-size: clamp(.85rem, 1.4vw, 1.4rem);
-  letter-spacing: .2em;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 400;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  text-shadow: 0 1px 8px rgba(255,255,255,.6);
+  margin: clamp(25px, 3vw, 40px) 0 0;
+  text-shadow: 0 1px 3px rgba(255,255,255,.45);
 }
 html:not(.local-editor) #btnAdd { display: none !important; }
 @media (max-width: 720px) {
-  .album-cover { width: 54%; padding: 0; }
-  .album-cover__glass { padding: 14px 10px; }
-  .album-cover__glass h1 { font-size: clamp(1.2rem, 4vw, 2rem); }
-  .album-cover__glass p { font-size: .7rem; margin-top: .6rem; letter-spacing: .08em; }
+  .album-cover { width: 51%; }
+  .album-cover__glass { padding: 12px 8px; }
+  .album-cover__glass h1 { font-size: clamp(1.25rem, 4vw, 2rem); }
+  .album-cover__glass h1::after { width: 3.3rem; margin-top: 12px; }
+  .album-cover__glass p { font-size: .7rem; margin-top: 12px; letter-spacing: .08em; }
   .controls { max-width: calc(100vw - 16px); gap: .16rem; padding: .35rem; bottom: .65rem; }
   .counter { min-width: 4.1rem; padding: 0; font-size: .75rem; }
   .speed-wrap { padding: 0 .2rem; gap: .1rem; }

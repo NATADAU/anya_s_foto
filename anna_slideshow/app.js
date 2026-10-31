@@ -160,6 +160,8 @@
       return;
     }
 
+    // Обложка принадлежит только первому кадру: убираем до появления следующего.
+    if (nextIndex !== 0) document.body.classList.remove("show-cover");
     transitioning = true;
     clearTimer();
 

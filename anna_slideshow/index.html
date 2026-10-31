@@ -4,18 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
-    <title>Фотоальбом Ани</title>
+    <title>Аня Сокальская. Фотоальбом</title>
+    <script>if (['localhost', '127.0.0.1'].includes(location.hostname)) document.documentElement.classList.add('local-editor');</script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="stage" id="stage" aria-label="Слайдшоу фотоальбома">
-      <p class="brand" id="brand">Фотоальбом Ани</p>
 
       <div class="slide-layer is-visible" id="layerA" aria-hidden="true">
         <img alt="" decoding="async" />
       </div>
       <div class="slide-layer" id="layerB" aria-hidden="true">
         <img alt="" decoding="async" />
+      </div>
+
+      <div class="album-cover" id="albumCover" aria-label="Обложка фотоальбома">
+        <div class="album-cover__glass">
+          <h1>Аня Сокальская</h1>
+          <p>Фотоальбом</p>
+        </div>
       </div>
 
       <div class="status" id="status" role="status">

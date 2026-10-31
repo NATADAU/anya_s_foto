@@ -72,25 +72,7 @@ body.ui-visible {
   background: transparent;
 }
 
-.brand {
-  position: absolute;
-  top: 1.25rem;
-  left: 1.5rem;
-  z-index: 5;
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
-  letter-spacing: 0.04em;
-  color: var(--muted);
-  opacity: 0;
-  transition: opacity 250ms ease-out;
-  pointer-events: none;
-}
 
-body.ui-visible .brand {
-  opacity: 0.85;
-}
 
 .controls {
   position: absolute;
@@ -378,4 +360,39 @@ body.upload-open .controls {
   .controls {
     transition: none;
   }
+}
+
+/* Обложка на первом кадре: матовая прозрачная плашка без декора */
+.album-cover {
+  position: absolute; inset: 0; z-index: 4;
+  display: flex; align-items: center; justify-content: center;
+  padding: 5vw; opacity: 0; visibility: hidden;
+  pointer-events: none; transition: opacity 400ms ease, visibility 400ms;
+}
+body.show-cover .album-cover { opacity: 1; visibility: visible; }
+.album-cover__glass {
+  width: min(84vw, 900px); padding: clamp(32px, 6vw, 80px) clamp(24px, 5vw, 72px);
+  text-align: center; background: rgba(242, 237, 230, .72);
+  border: 1px solid rgba(255,255,255,.6); border-radius: 12px;
+  box-shadow: 0 16px 50px rgba(0,0,0,.15);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  color: #292620;
+}
+.album-cover__glass h1 {
+  font-family: var(--font-display); font-size: clamp(2rem, 5.2vw, 5.5rem);
+  font-weight: 500; line-height: 1.12; margin: 0;
+}
+.album-cover__glass p {
+  font-family: var(--font-ui); font-size: clamp(1rem, 1.8vw, 1.65rem);
+  letter-spacing: .2em; text-transform: uppercase; margin: 1.5rem 0 0;
+}
+/* На GitHub Pages загрузка отключена. На локальном сервере сохранена. */
+html:not(.local-editor) #btnAdd { display: none !important; }
+@media (max-width: 600px) {
+  .album-cover__glass { width: 94vw; padding: 30px 18px; }
+  .album-cover__glass p { letter-spacing: .12em; margin-top: 1rem; }
+  .controls { max-width: calc(100vw - 16px); gap: .16rem; padding: .35rem; bottom: .65rem; }
+  .counter { min-width: 4.1rem; padding: 0; font-size: .75rem; }
+  .speed-wrap { padding: 0 .2rem; gap: .1rem; }
+  .controls button { --control-size: 36px; }
 }

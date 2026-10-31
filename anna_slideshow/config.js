@@ -18,5 +18,5 @@ window.ALBUM_CONFIG = {
   fadeMs: 800,
   speedOptionsSec: [3, 5, 7, 10, 15, 20],
   storageKey: "anna_slideshow_interval_sec",
-  title: "Фотоальбом Ани",
+  title: "Аня Сокальская. Фотоальбом",
 };
